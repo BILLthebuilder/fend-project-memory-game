@@ -30,10 +30,14 @@ const deck = document.querySelector('.deck');
 	deck.addEventListener('click', event => {
 		const clicked = event.target;
 		if(clicked.classList.contains('card')){
-			clicked.classList.toggle('open');
-			clicked.classList.toggle('show');
+		flipCard(clicked);
 		}
 	});
+	function flipCard(clicked){
+		clicked.classList.toggle('open');
+		clicked.classList.toggle('show');
+
+	}
 
 
 
