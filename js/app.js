@@ -1,18 +1,9 @@
-/*
- * Create a list that holds all of your cards
- */
-
-
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+ // An empty array to hold the cards
+let cardArray = [];
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-    let currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -24,19 +15,18 @@ function shuffle(array) {
 
     return array;
 }
-// An empty array to hold the cards
-let shuffledCards = [];
 
 const deck = document.querySelector('.deck');
 
 //The event listener that handles the logic for flipping the cards
 	deck.addEventListener('click', event => {
 		const clicked = event.target;
-		if(clicked.classList.contains('card') && shuffledCards.length < 2 && !clicked.classList.contains('open', 'show')){
+		if(clicked.classList.contains('card') && cardArray.length < 2 && !clicked.classList.contains('open', 'show')){
 			flipCard(clicked);
 			addCard(clicked);
-			if(shuffledCards.length === 2){
+			if(cardArray.length === 2){
 				checkIfMatch();
+				// shuffleDeck();
 			}
 
 		}
@@ -48,25 +38,32 @@ const deck = document.querySelector('.deck');
 	}
 
 	function addCard(clicked){
-		shuffledCards.push(clicked);
-		console.log(shuffledCards);
+		cardArray.push(clicked);
 	}
 
 	function checkIfMatch() {
-		if(shuffledCards[0].firstElementChild.className === shuffledCards[1].firstElementChild.className){
-			shuffledCards[0].classList.toggle('match');
-			shuffledCards[1].classList.toggle('match');
+		if(cardArray[0].firstElementChild.className === cardArray[1].firstElementChild.className){
+			cardArray[0].classList.toggle('match');
+			cardArray[1].classList.toggle('match');
 		}
 		else{
 			setTimeout(unFlip =>{
-				shuffledCards[0].classList.remove('open', 'show');
-				shuffledCards[1].classList.remove('open', 'show');
-
-				shuffledCards = [];
+				cardArray[0].classList.remove('open', 'show');
+				cardArray[1].classList.remove('open', 'show');
+				cardArray = [];
 			}, 2000);
 			console.log('Not a match!');
 		}
 	}
+
+	function shuffleDeck(){
+			const selectCards =Array.from(document.querySelectorAll('.deck li'));
+			const randomCards = shuffle(selectCards);
+			console.log('shuffled cards', randomCards);
+		}
+
+		shuffleDeck();
+
 
 
 
