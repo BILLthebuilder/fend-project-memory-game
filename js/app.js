@@ -32,7 +32,7 @@ const deck = document.querySelector('.deck');
 //The event listener that handles the logic for flipping the cards
 	deck.addEventListener('click', event => {
 		const clicked = event.target;
-		if(clicked.classList.contains('card') && shuffledCards.length < 2){
+		if(clicked.classList.contains('card') && shuffledCards.length < 2 && !clicked.classList.contains('open', 'show')){
 			flipCard(clicked);
 			addCard(clicked);
 			if(shuffledCards.length === 2){
@@ -41,7 +41,7 @@ const deck = document.querySelector('.deck');
 
 		}
 	});
-	// TODO: Refactor this code
+
 	function flipCard(clicked){
 		clicked.classList.toggle('open');
 		clicked.classList.toggle('show');
