@@ -24,20 +24,52 @@ function shuffle(array) {
 
     return array;
 }
+// An empty array to hold the cards
+let shuffledCards = [];
 
 const deck = document.querySelector('.deck');
 
+//The event listener that handles the logic for flipping the cards
 	deck.addEventListener('click', event => {
 		const clicked = event.target;
-		if(clicked.classList.contains('card')){
-		flipCard(clicked);
+		if(clicked.classList.contains('card') && shuffledCards.length < 2){
+			flipCard(clicked);
+			addCard(clicked);
+			if(shuffledCards.length === 2){
+				checkIfMatch();
+			}
+
 		}
 	});
+	// TODO: Refactor this code
 	function flipCard(clicked){
 		clicked.classList.toggle('open');
 		clicked.classList.toggle('show');
-
 	}
+
+	function addCard(clicked){
+		shuffledCards.push(clicked);
+		console.log(shuffledCards);
+	}
+
+	function checkIfMatch() {
+		if(shuffledCards[0].firstElementChild.className === shuffledCards[1].firstElementChild.className){
+			shuffledCards[0].classList.toggle('match');
+			shuffledCards[1].classList.toggle('match');
+		}
+		else{
+			setTimeout(unFlip =>{
+				shuffledCards[0].classList.remove('open', 'show');
+				shuffledCards[1].classList.remove('open', 'show');
+
+				shuffledCards = [];
+			}, 2000);
+			console.log('Not a match!');
+		}
+	}
+
+
+
 
 
 
