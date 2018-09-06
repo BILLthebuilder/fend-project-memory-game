@@ -18,7 +18,7 @@ function shuffle(array) {
 
 const deck = document.querySelector('.deck');
 
-//The event listener that handles the logic for flipping the cards
+//The event listener that handles all the relevant click events and the logic for flipping the cards
 	deck.addEventListener('click', event => {
 		const clicked = event.target;
 		if(clicked.classList.contains('card') && cardArray.length < 2 && !clicked.classList.contains('open', 'show')){
@@ -32,15 +32,18 @@ const deck = document.querySelector('.deck');
 		}
 	});
 
+	//function that flips the cards
 	function flipCard(clicked){
 		clicked.classList.toggle('open');
 		clicked.classList.toggle('show');
 	}
 
+	//Function that adds the event listener to the array that holds the cards
 	function addCard(clicked){
 		cardArray.push(clicked);
 	}
 
+	//Function that checks if the selected(flipped) cards are a match
 	function checkIfMatch() {
 		if(cardArray[0].firstElementChild.className === cardArray[1].firstElementChild.className){
 			cardArray[0].classList.toggle('match');
@@ -56,6 +59,7 @@ const deck = document.querySelector('.deck');
 		}
 	}
 
+	//Function that shuffles the cards while converting them into an array so that the DOM can be manipulated
 	function shuffleDeck(){
 			const selectCards =Array.from(document.querySelectorAll('.deck li'));
 			const randomCards = shuffle(selectCards);
