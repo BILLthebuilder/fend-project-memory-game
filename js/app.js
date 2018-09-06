@@ -60,6 +60,10 @@ const deck = document.querySelector('.deck');
 			const selectCards =Array.from(document.querySelectorAll('.deck li'));
 			const randomCards = shuffle(selectCards);
 			console.log('shuffled cards', randomCards);
+
+			for (card of randomCards){
+				deck.appendChild(card);
+			}
 		}
 
 		shuffleDeck();
