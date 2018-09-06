@@ -1,5 +1,6 @@
  // An empty array to hold the cards
 let cardArray = [];
+let move = 0;
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -27,6 +28,7 @@ const deck = document.querySelector('.deck');
 			if(cardArray.length === 2){
 				checkIfMatch();
 				// shuffleDeck();
+				addMoves();
 			}
 
 		}
@@ -71,6 +73,12 @@ const deck = document.querySelector('.deck');
 		}
 
 		shuffleDeck();
+
+	function addMoves(){
+		move ++;
+		const increaseMoves = document.querySelector('.moves')
+		increaseMoves.innerHTML = move;
+	}
 
 
 
