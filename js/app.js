@@ -29,6 +29,7 @@ const deck = document.querySelector('.deck');
 				checkIfMatch();
 				// shuffleDeck();
 				addMoves();
+				gameRating();
 			}
 
 		}
@@ -56,7 +57,7 @@ const deck = document.querySelector('.deck');
 				cardArray[0].classList.remove('open', 'show');
 				cardArray[1].classList.remove('open', 'show');
 				cardArray = [];
-			}, 2000);
+			}, 1000);
 			console.log('Not a match!');
 		}
 	}
@@ -80,7 +81,32 @@ const deck = document.querySelector('.deck');
 		increaseMoves.innerHTML = move;
 	}
 
+	//Function that determines the rating according to the number of moves made
+	function gameRating(){
+		if(move >= 16 && move > 1000){
+			lowerTheRating();
+		// else{
+		// 	// improveRating();
+		// }
 
+		}
+
+	}
+
+	//Function that lowers the number of stars for the rating
+	function lowerTheRating(){
+		const starList = document.querySelectorAll('.stars li');
+		for(star of starList){
+			if(star.style.display !== 'none'){
+				star.style.display = 'none';
+				break;
+			}
+
+		}
+	}
+
+	lowerTheRating();
+	// lowerTheRating();
 
 
 
