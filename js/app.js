@@ -30,6 +30,7 @@ const deck = document.querySelector('.deck');
 				// shuffleDeck();
 				addMoves();
 				gameRating();
+				ClockGenerate();
 			}
 
 		}
@@ -104,9 +105,17 @@ const deck = document.querySelector('.deck');
 
 		}
 	}
-
 	lowerTheRating();
 	// lowerTheRating();
+
+	//Function that generates a clock and starts a timer once a card is clicked
+	function ClockGenerate(){
+		const panel = document.querySelector('.score-panel');
+		const clock = `<span class = "clock">0:00</span`;
+		panel.insertAdjacentHTML('afterbegin', clock);
+		startTimer();
+	}
+
 
 
 
