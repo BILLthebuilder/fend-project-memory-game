@@ -108,14 +108,34 @@ const deck = document.querySelector('.deck');
 	lowerTheRating();
 	// lowerTheRating();
 
-	//Function that generates a clock and starts a timer once a card is clicked
-	function ClockGenerate(){
-		const panel = document.querySelector('.score-panel');
-		const clock = `<span class = "clock">0:00</span`;
-		panel.insertAdjacentHTML('afterbegin', clock);
-		startTimer();
+
+	function startClock(){
+		let clockId = setInterval(()=>{
+			time++;
+			displayTime();
+			console.log('timer is moving!');
+		},1000);
 	}
 
+	function displayTime(){
+		const selectClock = document.querySelector('.clock');
+
+		let minutes = Math.floor(time / 60);
+		let seconds = time % 60;
+		// let hours = Math.floor(minutes / 60);
+
+
+		// selectClock.innerHTML = `${hours}:${minutes}:${seconds}`;
+		if (seconds < 10) {
+         	selectClock.innerHTML = `${minutes}:0${seconds}`;
+     	}
+     	else if(minutes < 10){
+     		selectClock.innerHTML = `0${minutes}:${seconds}`;
+     	}
+	     else {
+	         selectClock.innerHTML = `${minutes}:${seconds}`;
+	     }
+	}
 
 
 
