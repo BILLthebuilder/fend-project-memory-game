@@ -8,6 +8,7 @@ let clockOff = true;
 // A variable to hold the incremented value of time elapsed
 let time = 0;
 
+let theClock;
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
