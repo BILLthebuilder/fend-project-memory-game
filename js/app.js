@@ -122,7 +122,7 @@ const deck = document.querySelector('.deck');
 
 	//Function that starts the clock
 	function startClock(){
-		let clockId = setInterval(()=>{
+		theClock = setInterval(()=>{
 			time++;
 			displayTime();
 			console.log('timer is moving!');
