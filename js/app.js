@@ -146,7 +146,10 @@ const deck = document.querySelector('.deck');
 	     }
 	}
 
+	function stopClock(){
+		clearInterval(theClock);
 
+	}
 
 
 
