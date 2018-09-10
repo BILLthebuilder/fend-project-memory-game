@@ -38,7 +38,6 @@ const deck = document.querySelector('.deck');
 					startClock();
 					clockOff = false;
 			}
-
 			if(cardArray.length === 2){
 				checkIfMatch();
 				addMoves();
@@ -88,6 +87,7 @@ const deck = document.querySelector('.deck');
 
 		shuffleDeck();
 
+	//Function that updates the moves made by a player in the game
 	function addMoves(){
 		move ++;
 		const increaseMoves = document.querySelector('.moves')
@@ -114,13 +114,12 @@ const deck = document.querySelector('.deck');
 				star.style.display = 'none';
 				break;
 			}
-
 		}
 	}
 	lowerTheRating();
 	// lowerTheRating();
 
-
+	//Function that starts the clock
 	function startClock(){
 		let clockId = setInterval(()=>{
 			time++;
@@ -129,14 +128,12 @@ const deck = document.querySelector('.deck');
 		},1000);
 	}
 
+	//Function that displays time in the correct format
 	function displayTime(){
 		const selectClock = document.querySelector('.clock');
-
 		let minutes = Math.floor(time / 60);
 		let seconds = time % 60;
 		// let hours = Math.floor(minutes / 60);
-
-
 		// selectClock.innerHTML = `${hours}:${minutes}:${seconds}`;
 		if (seconds < 10) {
          	selectClock.innerHTML = `${minutes}:0${seconds}`;
@@ -148,6 +145,8 @@ const deck = document.querySelector('.deck');
 	         selectClock.innerHTML = `${minutes}:${seconds}`;
 	     }
 	}
+
+
 
 
 
