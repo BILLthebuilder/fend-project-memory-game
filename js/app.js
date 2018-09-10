@@ -2,6 +2,14 @@
 let cardArray = [];
 let move = 0;
 
+//A variable that holds the current state of the clock
+let clockOff = true;
+
+// A variable to hold the incremented value of time elapsed
+let time = 0;
+
+
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -25,12 +33,16 @@ const deck = document.querySelector('.deck');
 		if(clicked.classList.contains('card') && cardArray.length < 2 && !clicked.classList.contains('open', 'show')){
 			flipCard(clicked);
 			addCard(clicked);
+
+			if(clockOff){
+					startClock();
+					clockOff = false;
+			}
+
 			if(cardArray.length === 2){
 				checkIfMatch();
-				// shuffleDeck();
 				addMoves();
 				gameRating();
-				ClockGenerate();
 			}
 
 		}
@@ -59,7 +71,7 @@ const deck = document.querySelector('.deck');
 				cardArray[1].classList.remove('open', 'show');
 				cardArray = [];
 			}, 1000);
-			console.log('Not a match!');
+			// console.log('Not a match!');
 		}
 	}
 
