@@ -158,10 +158,38 @@ function shuffle(array) {
 	     }
 	}
 
+	//Stopping the clock
 	function stopClock(){
 		clearInterval(theClock);
 
 	}
+
+
+	function toggleModal(){
+		const modal = document.querySelector('.modal__background');
+		modal.classList.toggle('hide');
+		displayStats();
+	}
+
+
+	function displayStats(){
+		const selectTime = document.querySelector('.modal__time');
+		const finalTime = document.querySelector('.clock').innerHTML;
+		selectTime.innerHTML = `It took you: ${finalTime}`;
+
+		const totalMoves = document.querySelector('.modal__moves');
+		totalMoves.innerHTML = `To finish the game in: ${move} moves`;
+
+		const rating = document.querySelector('.modal__stars');
+		const getRating = document.querySelectorAll('.display');
+		rating.innerHTML = `With a rating of:${getRating} star(s)`;
+		console.log(getRating);
+	}
+	// function stopGame(){
+	// 	stopClock();
+	// 	toggleModal();
+	// 	displayStats();
+	// }
 
 
 
