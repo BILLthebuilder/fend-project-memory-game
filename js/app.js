@@ -7,6 +7,8 @@ let clockOff = true;
 
 // A variable to hold the incremented value of time elapsed
 let time = 0;
+let minutes;
+let seconds;
 
 let theClock;
 
@@ -113,7 +115,7 @@ const deck = document.querySelector('.deck');
 			}
 		}
 	}
-	lowerTheRating();
+	// lowerTheRating();
 	// lowerTheRating();
 
 	//Function that starts the clock
@@ -128,8 +130,8 @@ const deck = document.querySelector('.deck');
 	//Function that displays time in the correct format
 	function displayTime(){
 		const selectClock = document.querySelector('.clock');
-		let minutes = Math.floor(time / 60);
-		let seconds = time % 60;
+		minutes = Math.floor(time / 60);
+		seconds = time % 60;
 		// let hours = Math.floor(minutes / 60);
 		// selectClock.innerHTML = `${hours}:${minutes}:${seconds}`;
 		if (seconds < 10) {
