@@ -1,16 +1,31 @@
  // An empty array to hold the cards
 let cardArray = [];
+
+const deck = document.querySelector('.deck');
+
+//The variable handling the number of moves
 let move = 0;
 
 //A variable that holds the current state of the clock
 let clockOff = true;
 
-// A variable to hold the incremented value of time elapsed
+// The Variables that manipulate the time functinality
 let time = 0;
 let minutes;
 let seconds;
 
 let theClock;
+
+//Closing the modal
+document.querySelector('.btn-danger').addEventListener('click',e=> {
+	toggleModal();
+});
+
+//Replay button for the modal
+document.querySelector('.btn-primary').addEventListener('click', e=>{
+	console.log('replay');
+});
+
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -27,8 +42,6 @@ function shuffle(array) {
 
     return array;
 }
-
-const deck = document.querySelector('.deck');
 
 //The event listener that handles all the relevant click events and the logic for flipping the cards
 	deck.addEventListener('click', event => {
