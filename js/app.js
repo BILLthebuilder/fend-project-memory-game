@@ -99,10 +99,6 @@ const deck = document.querySelector('.deck');
 	function gameRating(){
 		if(move >= 16 && move > 1000){
 			lowerTheRating();
-		// else{
-		// 	// improveRating();
-		// }
-
 		}
 
 	}
