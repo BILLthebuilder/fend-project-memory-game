@@ -77,9 +77,15 @@ function shuffle(array) {
 
 	//Function that checks if the selected(flipped) cards are a match
 	function checkIfMatch() {
+		const CardPairs = 8;
 		if(cardArray[0].firstElementChild.className === cardArray[1].firstElementChild.className){
 			cardArray[0].classList.toggle('match');
 			cardArray[1].classList.toggle('match');
+			cardArray = [];
+			matchedCards++;
+			if (matchedCards === CardPairs){
+				stopGame();
+			}
 		}
 		else{
 			setTimeout(unFlip =>{
