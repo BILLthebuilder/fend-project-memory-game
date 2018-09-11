@@ -13,8 +13,9 @@ let clockOff = true;
 let time = 0;
 let minutes;
 let seconds;
-
 let theClock;
+
+let matchedCards = 0;
 
 //Closing the modal
 document.querySelector('.btn-danger').addEventListener('click',e=> {
@@ -46,7 +47,7 @@ function shuffle(array) {
 //The event listener that handles all the relevant click events and the logic for flipping the cards
 	deck.addEventListener('click', event => {
 		const clicked = event.target;
-		if(clicked.classList.contains('card') && cardArray.length < 2 && !clicked.classList.contains('open', 'show')){
+		if(clicked.classList.contains('card') && !clicked.classList.contains('match') && cardArray.length < 2 && !cardArray.includes(clicked)){
 			flipCard(clicked);
 			addCard(clicked);
 
