@@ -18,14 +18,14 @@ let theClock;
 let matchedCards = 0;
 
 //Closing the modal
-document.querySelector('.btn-danger').addEventListener('click',e=> {
+document.querySelector('.btn-danger').addEventListener('click',e => {
 	toggleModal();
 });
 
 //Replay button for the modal
-document.querySelector('.btn-primary').addEventListener('click', e=>{
-	console.log('replay');
-});
+document.querySelector('.btn-primary').addEventListener('click', restartGame);
+
+document.querySelector('.restart').addEventListener('click', restartGame);
 
 
 
