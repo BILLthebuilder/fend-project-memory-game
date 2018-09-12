@@ -109,6 +109,10 @@ h1 {
     cursor: pointer;
 }
 
+.fa-repeat:hover{
+    color: blue;
+}
+
 .modal__background {
     position: absolute;
     top: 0;
