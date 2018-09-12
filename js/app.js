@@ -188,15 +188,49 @@ function shuffle(array) {
 		totalMoves.innerHTML = `To finish the game in: ${move} moves`;
 
 		const rating = document.querySelector('.modal__stars');
-		const getRating = document.querySelectorAll('.display');
+		const starList = document.querySelectorAll('.stars li');
 		rating.innerHTML = `With a rating of:${getRating} star(s)`;
 		console.log(getRating);
 	}
-	// function stopGame(){
-	// 	stopClock();
-	// 	toggleModal();
-	// 	displayStats();
-	// }
+
+	function stopGame(){
+		stopClock();
+		toggleModal();
+		displayStats();
+	}
+
+	function resetMoves(){
+		move = 0;
+		const resetMoveCounter = document.querySelector('.moves');
+		resetMoveCounter.innerHTML = move;
+
+	}
+
+	function resetCards(){
+		const cards = document.querySelectorAll('.deck li');
+		for (card of cards){
+			card.className = 'card';
+		}
+	}
+
+	function resetTime(){
+		time = 0;
+		clockOff = true;
+		displayTime();
+		// const clockRemover = document.querySelector('.clock');
+		// clockRemover.innerHTML = `${minutes}:${seconds}`;
+	}
+
+	function restartGame(){
+		toggleModal();
+		toggleModal();
+		resetCards();
+		resetTime();
+		stopClock();
+		resetTime();
+		resetMoves();
+
+	}
 
 
 
