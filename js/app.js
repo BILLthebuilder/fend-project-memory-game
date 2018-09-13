@@ -119,7 +119,10 @@ function shuffle(array) {
 
 	//Function that determines the rating according to the number of moves made
 	function gameRating(){
-		if(move >= 16 && move > 1000){
+		if(move === 8){
+			lowerTheRating();
+		}
+		else if(move === 16){
 			lowerTheRating();
 		}
 
@@ -129,13 +132,13 @@ function shuffle(array) {
 	function lowerTheRating(){
 		const starList = document.querySelectorAll('.stars li');
 		for(star of starList){
-			if(star.style.display !== 'none'){
-				star.style.display = 'none';
+			if(star.style.display = 'none'){
+				star.style.display !== 'none';
 				break;
 			}
 		}
 	}
-	lowerTheRating();
+	// lowerTheRating();
 	// lowerTheRating();
 
 	//Function that starts the clock
@@ -187,15 +190,14 @@ function shuffle(array) {
 		const totalMoves = document.querySelector('.modal__moves');
 		totalMoves.innerHTML = `To finish the game in: ${move} moves`;
 
-		// const rating = document.querySelector('.modal__stars');
-		// const starList = document.querySelectorAll('.stars li');
-		// for (star of starList){
-		// 	if(star.style.display !== 'none'){
-		// 		star.className = 'fa-star'
-		// 	}
-		// }
-		// rating.innerHTML = `With a rating of:${getRating} star(s)`;
-		// console.log(getRating);
+		//Displaying the star rating on the modal
+		const rating = document.querySelector('.modal__stars');
+		const starList = document.querySelectorAll('.stars li');
+		for (star of starList){
+			star.style.display = 'inline';
+		}
+		rating.innerHTML = `With a rating of:${starList} star`;
+		console.log(starList);
 	}
 
 	function stopGame(){
@@ -218,6 +220,15 @@ function shuffle(array) {
 		}
 	}
 
+	function resetRating(){
+		const starList = document.querySelectorAll('.stars li');
+		for(star of starList){
+			if(star.style.display = 'none'){
+				star.style.display !== 'none'
+			}
+		}
+	}
+
 	function resetTime(){
 		time = 0;
 		clockOff = true;
@@ -227,13 +238,15 @@ function shuffle(array) {
 	}
 
 	function restartGame(){
-		toggleModal();
-		toggleModal();
+		// toggleModal();
+		// toggleModal();
 		resetCards();
 		resetTime();
 		stopClock();
 		resetTime();
+		resetRating();
 		resetMoves();
+		shuffleDeck();
 
 	}
 
