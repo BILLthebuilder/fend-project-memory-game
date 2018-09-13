@@ -135,7 +135,7 @@ function shuffle(array) {
 			}
 		}
 	}
-	// lowerTheRating();
+	lowerTheRating();
 	// lowerTheRating();
 
 	//Function that starts the clock
@@ -187,16 +187,21 @@ function shuffle(array) {
 		const totalMoves = document.querySelector('.modal__moves');
 		totalMoves.innerHTML = `To finish the game in: ${move} moves`;
 
-		const rating = document.querySelector('.modal__stars');
-		const starList = document.querySelectorAll('.stars li');
-		rating.innerHTML = `With a rating of:${getRating} star(s)`;
-		console.log(getRating);
+		// const rating = document.querySelector('.modal__stars');
+		// const starList = document.querySelectorAll('.stars li');
+		// for (star of starList){
+		// 	if(star.style.display !== 'none'){
+		// 		star.className = 'fa-star'
+		// 	}
+		// }
+		// rating.innerHTML = `With a rating of:${getRating} star(s)`;
+		// console.log(getRating);
 	}
 
 	function stopGame(){
 		stopClock();
-		toggleModal();
 		displayStats();
+		toggleModal();
 	}
 
 	function resetMoves(){
