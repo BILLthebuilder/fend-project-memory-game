@@ -18,12 +18,15 @@ let theClock;
 let matchedCards = 0;
 
 //Closing the modal
-document.querySelector('.btn-danger').addEventListener('click',e => {
-	toggleModal();
-});
+document.querySelector('.btn-danger').addEventListener('click', toggleModal);
 
 //Replay button for the modal
-document.querySelector('.btn-primary').addEventListener('click', restartGame);
+document.querySelector('.btn-primary').addEventListener('click', ()=> {
+
+	restartGame();
+	toggleModal();
+
+	});
 
 document.querySelector('.restart').addEventListener('click', restartGame);
 
@@ -223,7 +226,9 @@ function shuffle(array) {
 
 	function stopGame(){
 		stopClock();
-		displayStats();
+		// resetTime();
+		// displayStats();
+		// restartGame();
 		toggleModal();
 	}
 
@@ -261,7 +266,6 @@ function shuffle(array) {
 		// toggleModal();
 		// toggleModal();
 		resetCards();
-		resetTime();
 		stopClock();
 		resetTime();
 		resetRating();
