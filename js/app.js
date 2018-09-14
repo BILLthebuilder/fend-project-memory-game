@@ -8,8 +8,6 @@
  *https://matthewcranford.com/memory-game-walkthrough-part-6-the-clock/
  *https://matthewcranford.com/memory-game-walkthrough-part-7-making-a-modal/
  *https://matthewcranford.com/memory-game-walkthrough-part-8-putting-it-all-together/
-
-
 */
  // An empty array to hold the cards
 let cardArray = [];
@@ -190,14 +188,14 @@ function shuffle(array) {
 
 	}
 
-
+	//Function that toggles the modal to be hidden or shown
 	function toggleModal(){
 		const modal = document.querySelector('.modal__background');
 		modal.classList.toggle('hide');
 		displayStats();
 	}
 
-
+	//Function that displays statistics on the modal which are time,total moves and the star rating 
 	function displayStats(){
 		const selectTime = document.querySelector('.modal__time');
 		const finalTime = document.querySelector('.clock').innerHTML;
@@ -224,7 +222,7 @@ function shuffle(array) {
 		rating.innerHTML = `With a rating of: ${stars} star(s)`
 
 	}
-
+	//Function that evaluates the number of stars  
 	function evalStars(){
 		const starList = document.querySelectorAll('.stars li');
 		let noOfStars = 0;
@@ -238,7 +236,7 @@ function shuffle(array) {
 	}
 
 
-
+	//Function that resets the move counter
 	function resetMoves(){
 		move = 0;
 		const resetMoveCounter = document.querySelector('.moves');
@@ -246,13 +244,15 @@ function shuffle(array) {
 
 	}
 
+	//Function that resets the deck of cards
 	function resetCards(){
 		const cards = document.querySelectorAll('.deck li');
 		for (card of cards){
 			card.className = 'card';
 		}
 	}
-
+	
+	//Function that resets the ratings
 	function resetRating(){
 		stars = 0;
 		const starList = document.querySelectorAll('.stars li');
@@ -261,7 +261,7 @@ function shuffle(array) {
 			}
 	}
 
-
+	//Function that resets the time
 	function resetTime(){
 		time = 0;
 		clockOff = true;
@@ -270,6 +270,7 @@ function shuffle(array) {
 		// clockRemover.innerHTML = `${minutes}:${seconds}`;
 	}
 
+	//Function that stops the game after all cards have matched
 	function stopGame(){
 		stopClock();
 		// resetTime();
@@ -278,7 +279,8 @@ function shuffle(array) {
 		evalStars();
 		toggleModal();
 	}
-
+	
+	//Function that restarts the game and resets the game board 
 	function restartGame(){
 		resetCards();
 		stopClock();
