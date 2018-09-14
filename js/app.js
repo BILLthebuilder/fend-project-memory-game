@@ -223,11 +223,10 @@ function shuffle(array) {
 	function resetRating(){
 		const starList = document.querySelectorAll('.stars li');
 		for(star of starList){
-			if(star.style.display = 'none'){
-				star.style.display !== 'none'
+				star.style.display = 'inline'
 			}
-		}
 	}
+
 
 	function resetTime(){
 		time = 0;
