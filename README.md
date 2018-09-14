@@ -18,4 +18,4 @@ A clock that starsts each time a card is clicked.
 A star rating.
 Function to restart the game.
 
-## You can play the game here: Play[https://billthebuilder.github.io/fend-project-memory-game/]
+## You can play the game here: [Play](https://billthebuilder.github.io/fend-project-memory-game/)
