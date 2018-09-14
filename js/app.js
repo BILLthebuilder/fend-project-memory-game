@@ -122,10 +122,10 @@ function shuffle(array) {
 
 	//Function that determines the rating according to the number of moves made
 	function gameRating(){
-		if(move === 8){
+		if(move === 8 || move === 20){
 			lowerTheRating();
 		}
-		else if(move === 16){
+		else if(move > 20){
 			lowerTheRating();
 		}
 
@@ -208,7 +208,7 @@ function shuffle(array) {
 		*/
 		const rating = document.querySelector('.modal__stars');
 		const stars = evalStars();
-		rating.innerHTML = `With a rating of ${stars} star(s)`
+		rating.innerHTML = `With a rating of: ${stars} star(s)`
 
 	}
 
@@ -224,13 +224,7 @@ function shuffle(array) {
 		return noOfStars;
 	}
 
-	function stopGame(){
-		stopClock();
-		// resetTime();
-		// displayStats();
-		// restartGame();
-		toggleModal();
-	}
+
 
 	function resetMoves(){
 		move = 0;
@@ -247,6 +241,7 @@ function shuffle(array) {
 	}
 
 	function resetRating(){
+		stars = 0;
 		const starList = document.querySelectorAll('.stars li');
 		for(star of starList){
 				star.style.display = 'inline'
@@ -262,9 +257,16 @@ function shuffle(array) {
 		// clockRemover.innerHTML = `${minutes}:${seconds}`;
 	}
 
+	function stopGame(){
+		stopClock();
+		// resetTime();
+		// displayStats();
+		// restartGame();
+		evalStars();
+		toggleModal();
+	}
+
 	function restartGame(){
-		// toggleModal();
-		// toggleModal();
 		resetCards();
 		stopClock();
 		resetTime();
