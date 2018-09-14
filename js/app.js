@@ -1,3 +1,16 @@
+ /*The code in this project has been inspired partly or in whole by the following links:
+ *Some parts may be similar to the content on the links while others may be different
+
+ *https://matthewcranford.com/memory-game-walkthrough-part-2-toggling-cards/
+ *https://matthewcranford.com/memory-game-walkthrough-part-3-matching-pairs/
+ *https://matthewcranford.com/memory-game-walkthrough-part-4-shuffling-decks/
+ *https://matthewcranford.com/memory-game-walkthrough-part-5-moves-stars/
+ *https://matthewcranford.com/memory-game-walkthrough-part-6-the-clock/
+ *https://matthewcranford.com/memory-game-walkthrough-part-7-making-a-modal/
+ *https://matthewcranford.com/memory-game-walkthrough-part-8-putting-it-all-together/
+
+
+*/
  // An empty array to hold the cards
 let cardArray = [];
 
