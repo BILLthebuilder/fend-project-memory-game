@@ -191,13 +191,34 @@ function shuffle(array) {
 		totalMoves.innerHTML = `To finish the game in: ${move} moves`;
 
 		//Displaying the star rating on the modal
+
+		/*This code didn't work as expected
 		const rating = document.querySelector('.modal__stars');
 		const starList = document.querySelectorAll('.stars li');
 		for (star of starList){
-			star.style.display = 'inline';
+			if(star.style.display !== 'none'){
+				star.className = 'fa-star'
+			}
 		}
-		rating.innerHTML = `With a rating of:${starList} star`;
+		rating.innerHTML = `With a rating of:${starList} star(s)`;
 		console.log(starList);
+		*/
+		const rating = document.querySelector('.modal__stars');
+		const stars = evalStars();
+		rating.innerHTML = `With a rating of ${stars} star(s)`
+
+	}
+
+	function evalStars(){
+		const starList = document.querySelectorAll('.stars li');
+		let noOfStars = 0;
+
+		for(star of starList){
+			if(star.style.display !== 'none');{
+				noOfStars++;
+			}
+		}
+		return noOfStars;
 	}
 
 	function stopGame(){
