@@ -30,10 +30,6 @@ let matchedCards = 0;
 
 //Closing the modal
 document.querySelector('.btn-danger').addEventListener('click', toggleModal);
-document.querySelector('.modal__background').addEventListener('click', ()=> {
-	toggleModal();
-	restartGame();
-});
 
 //Replay button for the modal
 document.querySelector('.btn-primary').addEventListener('click', ()=> {
